@@ -1,12 +1,12 @@
 {
-    "version": "0.0.263",
+    "version": "0.0.274",
     "description": "AI-powered assistant and productivity tool",
     "homepage": "https://alma.now",
     "license": "Unknown",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/yetone/alma-releases/releases/download/v0.0.263/alma-0.0.263-win-x64.exe#/dl.7z",
-            "hash": "19c7b84db822e362120ffee7e645a2015298e55fdf9d95468b2aca63b9ff12eb"
+            "url": "https://github.com/yetone/alma-releases/releases/download/v0.0.274/alma-0.0.274-win-x64.exe#/dl.7z",
+            "hash": "6b2521a80f81da773e307c98d4bf038ed2c246fb934d651f1ed4a33b69c3e394"
         }
     },
     "pre_install": [
