@@ -1,49 +1,60 @@
 {
-    "version": "1.5.6.0",
-    "description": "Lightweight text editor.",
-    "homepage": "https://www.notepadsapp.com/",
-    "license": "MIT",
-    "url": "https://github.com/0x7c13/Notepads/releases/download/v1.5.6.0/Notepads_1.5.6.0_x86_x64_arm64.msixbundle#/Notepads.msixbundle",
-    "hash": "64e48c47ee39aa63616946e4d9f3d287d96b4650fc119eb8cbc73a1d58b36540",
-    "installer": {
-        "script": [
-            "$ProgressPreference = \"SilentlyContinue\"",
-            "Add-AppxPackage -Path \"$dir\\Notepads.msixbundle\""
-        ]
-    },
+    "version": "3.3.4_b1",
+    "description": "Collection of shell extensions that provide File Explorer thumbnails for a variety of video formats.",
+    "homepage": "https://www.majorgeeks.com/files/details/icaros.html",
+    "license": "Freeware",
+    "url": "https://www.videohelp.com/download/Icaros_v3.3.4_b1.zip",
+    "hash": "dfe6f39a35b45cec9a52ad010fdc99b2d71139eaf0770b8eae91707a8b8c2523",
+    "pre_install": [
+        "if (!(is_admin)) {",
+        "    error \"Administrator rights are required to install $app.\"",
+        "    break",
+        "}"
+    ],
     "post_install": [
-        "$package_dir = Resolve-Path -Path \"$env:LOCALAPPDATA\\Packages\\*JackieLiu*Notepads*\" | Select-Object -ExpandProperty Path",
-        "if (-not (Test-Path -Path \"$persist_dir\\LocalAppData\")) {",
-        "    New-Item -Path \"$persist_dir\\LocalAppData\" -ItemType Directory -Force | Out-Null",
-        "    Get-ChildItem \"$package_dir\" | Copy-Item -Destination \"$persist_dir\\LocalAppData\" -Force -Recurse",
+        "regsvr32 /s \"$dir\\32-bit\\IcarosThumbnailProvider.dll\"",
+        "regsvr32 /s \"$dir\\32-bit\\IcarosPropertyHandler.dll\"",
+        "",
+        "if ($architecture -eq '64bit') {",
+        "    regsvr32 /s \"$dir\\64-bit\\IcarosThumbnailProvider.dll\"",
+        "    regsvr32 /s \"$dir\\64-bit\\IcarosPropertyHandler.dll\"",
         "}",
-        "Remove-Item \"$package_dir\" -Force -Recurse",
-        "New-Item -ItemType Junction -Path \"$package_dir\" -Target \"$persist_dir\\LocalAppData\" -Force | Out-Null"
+        "",
+        "Stop-Process -Name explorer"
     ],
     "uninstaller": {
         "script": [
-            "$ProgressPreference = \"SilentlyContinue\"",
-            "$is_running = $null -ne $(Get-Process -Name Notepads -ErrorAction SilentlyContinue)",
-            "if ($is_running) {",
-            "    Write-Host \"`nNotepads is running, would you like to continue?\" -ForegroundColor Yellow",
-            "    $answer = Read-Host -Prompt \"Enter 'y' to continue, any other key to cancel\"",
-            "    if ('y' -eq $answer) {",
-            "        Write-Host \"Stopping process...\" -ForegroundColor Yellow -NoNewline",
-            "        Stop-Process -Name Notepads -ErrorAction Stop",
-            "        Start-Sleep -Milliseconds 250",
-            "    } else {",
-            "        Write-Host \"Uninstallation cancelled.\" -ForegroundColor Red",
-            "        break",
-            "    }",
+            "if (!(is_admin)) {",
+            "    error \"Administrator rights are required to uninstall $app.\"",
+            "    break",
             "}",
-            "Get-AppxPackage -Name '*JackieLiu*Notepads*' | Remove-AppxPackage -PreserveRoamableApplicationData -ErrorAction Stop",
-            "Resolve-Path -Path \"$env:LOCALAPPDATA\\Packages\\*JackieLiu*Notepads*\" | Remove-Item -Force -Recurse -ErrorAction SilentlyContinue"
+            "",
+            "regsvr32 /s /u \"$dir\\32-bit\\IcarosThumbnailProvider.dll\"",
+            "regsvr32 /s /u \"$dir\\32-bit\\IcarosPropertyHandler.dll\"",
+            "",
+            "if ($architecture -eq '64bit') {",
+            "    regsvr32 /s /u \"$dir\\64-bit\\IcarosThumbnailProvider.dll\"",
+            "    regsvr32 /s /u \"$dir\\64-bit\\IcarosPropertyHandler.dll\"",
+            "}",
+            "",
+            "Stop-Process -Name explorer",
+            "# This seems to impede uninstallation sometimes",
+            "Stop-Process -ErrorAction Ignore -Name OpenWith"
         ]
     },
+    "bin": "IcarosConfig.exe",
+    "shortcuts": [
+        [
+            "IcarosConfig.exe",
+            "Icaros"
+        ]
+    ],
     "checkver": {
-        "github": "https://github.com/0x7c13/Notepads"
+        "url": "https://www.videohelp.com/software/Icaros",
+        "regex": "/download/Icaros_v([\\w.]+)\\.zip",
+        "reverse": true
     },
     "autoupdate": {
-        "url": "https://github.com/0x7c13/Notepads/releases/download/v$version/Notepads_$version_x86_x64_arm64.msixbundle#/Notepads.msixbundle"
+        "url": "https://www.videohelp.com/download/Icaros_v$version.zip"
     }
 }
