@@ -11,13 +11,13 @@
     "innosetup": true,
     "bin": [
         [
-            "wincleaner.exe",
+            "main.exe",
             "WindowsCleaner"
         ]
     ],
     "shortcuts": [
         [
-            "wincleaner.exe",
+            "main.exe",
             "WindowsCleaner"
         ]
     ],
