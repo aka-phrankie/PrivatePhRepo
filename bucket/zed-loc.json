@@ -1,29 +1,33 @@
 {
-  "version": "v0.217.3",
-  "description": "Zed Editor (Localized)",
-  "homepage": "https://github.com/SKIPPINGpetticoatconvent/zed-loc",
-  "license": "GPL-3.0-only",
-  "architecture": {
-    "64bit": {
-      "hash": "62A7CDD0B489AF4A55A5F5B6B0613C6EB441800DB4B6235A43CBA16DA3E69D93",
-      "url": "https://github.com/SKIPPINGpetticoatconvent/zed-loc/releases/download/v0.217.3/zed-windows.zip"
-    }
-  },
-  "bin": "zed.exe",
-  "checkver": {
-    "github": "https://github.com/SKIPPINGpetticoatconvent/zed-loc"
-  },
-  "autoupdate": {
+    "version": "20260406",
+    "description": "Zed Editor (Localized) - 汉化版 Zed 编辑器",
+    "homepage": "https://github.com/TC999/zed-loc",
+    "license": "GPL-3.0-only",
     "architecture": {
-      "64bit": {
-        "url": "https://github.com/SKIPPINGpetticoatconvent/zed-loc/releases/download/$version/zed-windows.zip"
-      }
-    }
-  },
-  "shortcuts": [
-    [
-      "zed.exe",
-      "Zed"
+        "64bit": {
+            "url": "https://github.com/TC999/zed-loc/releases/download/20260406/zed-windows.zip",
+            "hash": "a1869b6eda7e9c83133c4e0e35194641bdb0cfff4ac23a28534a33ad1f059891"
+        }
+    },
+    "bin": "zed.exe",
+    "checkver": {
+        "github": "https://github.com/TC999/zed-loc",
+        "re": "(?<version>\\d{8})"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/TC999/zed-loc/releases/download/$version/zed-windows.zip"
+            }
+        },
+        "hash": {
+            "url": "https://github.com/TC999/zed-loc/releases/download/$version/sha256sums.txt"
+        }
+    },
+    "shortcuts": [
+        [
+            "zed.exe",
+            "Zed"
+        ]
     ]
-  ]
 }
