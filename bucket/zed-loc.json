@@ -11,8 +11,8 @@
     },
     "bin": "zed.exe",
     "checkver": {
-        "github": "https://github.com/TC999/zed-loc",
-        "re": "(?<version>\\d{8})"
+        "url": "https://api.github.com/repos/TC999/zed-loc/releases/latest",
+        "regex": "\"tag_name\":\\s*\"(?<version>\\d{8})\""
     },
     "autoupdate": {
         "architecture": {
