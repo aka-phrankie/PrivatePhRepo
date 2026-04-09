@@ -13,11 +13,9 @@
     "shortcuts": [
         [ "piliplus.exe", "PiliPlus" ]
     ],
-    // --- 关键改进：使用内置的 persist 实现数据持久化 ---
     "persist": [
         ["AppData", "$env:AppData\\com.example\\piliplus"]
     ],
-    // --- 如果确实要在安装前后关进程，直接写在 script 里，不要引用外部文件 ---
     "pre_uninstall": "Stop-Process -Name 'piliplus' -ErrorAction SilentlyContinue",
     
     "checkver": {
