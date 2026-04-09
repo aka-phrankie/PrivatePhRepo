@@ -10,17 +10,19 @@
         }
     },
     "extract_dir": "PiliPlus-Win",
+    "extract_to": "app",
     "shortcuts": [
-        [ "piliplus.exe", "PiliPlus" ]
+        [ "app\\piliplus.exe", "PiliPlus" ]
     ],
     "persist": [
-        ["AppData", "$env:AppData\\com.example\\piliplus"]
+        ["AppData/com.example/piliplus", "AppData/com.example/piliplus"]
     ],
-    "pre_uninstall": "Stop-Process -Name 'piliplus' -ErrorAction SilentlyContinue",
-    
+    "pre_uninstall": [
+        "Stop-Process -Name 'piliplus' -Force -ErrorAction SilentlyContinue"
+    ],
     "checkver": {
-        "github": "https://github.com/bggRGjQaUbCoE/PiliPlus",
-        "regex": "PiliPlus_windows_(?<main>[\\d.]+)%2B(?<build>\\d+)_x64"
+        "url": "https://api.github.com/repos/bggRGjQaUbCoE/PiliPlus/releases/latest",
+        "regex": "/download/([^/]+)/PiliPlus_windows_(?<main>[\\d.]+)%2B(?<build>\\d+)_x64_portable.zip"
     },
     "autoupdate": {
         "architecture": {
