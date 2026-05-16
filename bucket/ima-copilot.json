@@ -35,10 +35,10 @@
             "$logContent = Invoke-RestMethod -Uri $logFileUrl -UseBasicParsing",
             "Write-Output $logContent"
         ],
-        "regex": "InstallerUrl:\\s*https?://(?<url>\\S+)[\\s\\S]+?RealVersion:\\s*(?<version>[0-9.]+)"
+        "regex": "InstallerUrl:\\s*https?://app-dl\\.ima\\.qq\\.com/(?<path>\\S+)[\\s\\S]+?RealVersion:\\s*(?<version>[0-9.]+)"
     },
     "autoupdate": {
-        "url": "https://$matchUrl#/dl.7z",
+        "url": "https://app-dl.ima.qq.com/$matchPath#/dl.7z",
         "hash": {
             "url": "https://raw.githubusercontent.com/microsoft/winget-pkgs/master/manifests/t/Tencent/ima-copilot/$version/Tencent.ima-copilot.installer.yaml",
             "regex": "Architecture: x64[\\s\\S]+?InstallerSha256:\\s?(.+)"
