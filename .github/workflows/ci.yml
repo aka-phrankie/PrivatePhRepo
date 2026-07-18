@@ -14,44 +14,57 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout Bucket
-        uses: actions/checkout@v4
+        # Best Practice: Use the latest major version that supports Node.js 24 and has security improvements.
+        uses: actions/checkout@v6
         with:
           fetch-depth: 2
           path: my_bucket
+          
       - name: Checkout Scoop
-        uses: actions/checkout@v4
+        # Best Practice: Also update this checkout action to v6.
+        uses: actions/checkout@v6
         with:
           repository: ScoopInstaller/Scoop
           path: scoop_core
+          
       - name: Init Test Suite
-        uses: potatoqualitee/psmodulecache@main
+        # Best Practice: Pin to a specific, stable release instead of the @main branch.
+        uses: potatoqualitee/psmodulecache@v6.2.1
         with:
           modules-to-cache: BuildHelpers
           shell: powershell
+          
       - name: Test Bucket
         shell: powershell
         run: |
           $env:SCOOP_HOME="$(Convert-Path '.\scoop_core')"
           .\my_bucket\bin\test.ps1
+
   test_pwsh:
     name: PowerShell
     runs-on: windows-latest
     steps:
       - name: Checkout Bucket
-        uses: actions/checkout@v4
+        # Best Practice: Use the latest major version that supports Node.js 24 and has security improvements.
+        uses: actions/checkout@v6
         with:
           fetch-depth: 2
           path: my_bucket
+          
       - name: Checkout Scoop
-        uses: actions/checkout@v4
+        # Best Practice: Also update this checkout action to v6.
+        uses: actions/checkout@v6
         with:
           repository: ScoopInstaller/Scoop
           path: scoop_core
+          
       - name: Init Test Suite
-        uses: potatoqualitee/psmodulecache@main
+        # Best Practice: Pin to a specific, stable release instead of the @main branch.
+        uses: potatoqualitee/psmodulecache@v6.2.1
         with:
           modules-to-cache: BuildHelpers
           shell: pwsh
+          
       - name: Test Bucket
         shell: pwsh
         run: |
