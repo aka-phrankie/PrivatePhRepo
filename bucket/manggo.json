@@ -1,10 +1,10 @@
 {
-    "version": "0.7.1",
+    "version": "0.7.2",
     "description": "A desktop translation and screenshot OCR assistant for academic reading, web browsing, and cross-language communication.",
     "homepage": "https://manggo.pylogmon.com/",
     "license": "Proprietary",
-    "url": "https://gitcode.com/Pylogmon/Manggo/releases/download/0.7.1/Manggo-0.7.1-Windows-AMD64.exe#/dl.7z",
-    "hash": "6ee6dd04878132148b681ccb6c51c23e0cc8041f96d1b47240a7bd51b10e968a",
+    "url": "https://gitcode.com/Pylogmon/Manggo/releases/download/0.7.2/Manggo-0.7.2-Windows-AMD64.exe#/dl.7z",
+    "hash": "d49db82d8bef8059fa8fb2c23fe90572406fc8fec505d6a21a429fc1756b49c2",
     "shortcuts": [
         [
             "bin\\Manggo.exe",
