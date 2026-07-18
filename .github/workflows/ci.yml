@@ -14,26 +14,23 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout Bucket
-        # Best Practice: Use the latest major version that supports Node.js 24 and has security improvements.
         uses: actions/checkout@v6
         with:
           fetch-depth: 2
           path: my_bucket
-          
+
       - name: Checkout Scoop
-        # Best Practice: Also update this checkout action to v6.
         uses: actions/checkout@v6
         with:
           repository: ScoopInstaller/Scoop
           path: scoop_core
-          
+
       - name: Init Test Suite
-        # Best Practice: Pin to a specific, stable release instead of the @main branch.
         uses: potatoqualitee/psmodulecache@v6.2.1
         with:
           modules-to-cache: BuildHelpers
           shell: powershell
-          
+
       - name: Test Bucket
         shell: powershell
         run: |
@@ -45,26 +42,23 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout Bucket
-        # Best Practice: Use the latest major version that supports Node.js 24 and has security improvements.
         uses: actions/checkout@v6
         with:
           fetch-depth: 2
           path: my_bucket
-          
+
       - name: Checkout Scoop
-        # Best Practice: Also update this checkout action to v6.
         uses: actions/checkout@v6
         with:
           repository: ScoopInstaller/Scoop
           path: scoop_core
-          
+
       - name: Init Test Suite
-        # Best Practice: Pin to a specific, stable release instead of the @main branch.
         uses: potatoqualitee/psmodulecache@v6.2.1
         with:
           modules-to-cache: BuildHelpers
           shell: pwsh
-          
+
       - name: Test Bucket
         shell: pwsh
         run: |
