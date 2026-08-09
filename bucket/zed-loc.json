@@ -1,12 +1,12 @@
 {
-    "version": "20260807",
+    "version": "20260808",
     "description": "Zed Editor (Localized) - 汉化版 Zed 编辑器",
     "homepage": "https://github.com/TC999/zed-loc",
     "license": "GPL-3.0-only",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/TC999/zed-loc/releases/download/20260807/zed-windows.zip",
-            "hash": "fabe9977c9f776ac32b427360ac0afaa75769d2d8c54651d6a3a190f30beb720"
+            "url": "https://github.com/TC999/zed-loc/releases/download/20260808/zed-windows.zip",
+            "hash": "9349cb9d78e60ba98001725f01b886a7db5cb3a45100578177b159f5c19e5a79"
         }
     },
     "bin": "zed.exe",
