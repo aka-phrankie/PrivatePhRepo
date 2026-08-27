@@ -1,21 +1,23 @@
 {
-    "version": "0.3.0",
-    "description": "AI-powered assistant and productivity tool",
-    "homepage": "https://alma.now",
-    "license": "Unknown",
+    "version": "0.4.0",
+    "description": "Elegant AI Provider Orchestration",
+    "homepage": "https://alma.now/",
+    "license": "Proprietary",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/yetone/alma-releases/releases/download/v0.3.0/alma-0.3.0-win-x64.exe#/dl.7z",
-            "hash": "409e7908f053093d468d41b2b0bfac3bb4ac8bd31630e3c8810623ca3415b621"
+            "url": "https://github.com/yetone/alma-releases/releases/download/v0.4.0/alma-0.4.0-win-x64.exe#/dl.7z",
+            "hash": "8f541e6902fbbfd3ca6ca88823a13a3274646a466351eb54fbec805eaa9926e9",
+            "installer": {
+                "script": [
+                    "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
+                    "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\`$R0\" -Force -Recurse"
+                ]
+            }
         }
     },
-    "pre_install": [
-        "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
-        "Remove-Item \"$dir\\`$*\" -Recurse"
-    ],
     "shortcuts": [
         [
-            "alma.exe",
+            "Alma.exe",
             "Alma"
         ]
     ],
