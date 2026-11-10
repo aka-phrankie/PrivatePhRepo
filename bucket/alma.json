@@ -6,7 +6,8 @@
     "architecture": {
         "64bit": {
             "url": "https://github.com/yetone/alma-releases/releases/download/v0.4.567/alma-0.4.567-win-x64.zip",
-            "hash": "0a4e2638972ac6f93c39b56ac1ce3637569cc8bac9cab9506776912b9d79c9a6"
+            "hash": "0a4e2638972ac6f93c39b56ac1ce3637569cc8bac9cab9506776912b9d79c9a6",
+            "extract_dir": "Alma"
         }
     },
     "shortcuts": [
@@ -21,7 +22,8 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/yetone/alma-releases/releases/download/v$version/alma-$version-win-x64.zip"
+                "url": "https://github.com/yetone/alma-releases/releases/download/v$version/alma-$version-win-x64.zip",
+                "extract_dir": "Alma"
             }
         }
     }
